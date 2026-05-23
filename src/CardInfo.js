@@ -27,11 +27,14 @@ const CardInfo = ({ card }) => {
       <div className="card-info-img" style={{ backgroundColor: card.color }}>
         <img src={card.imgLink} className="card-info-img-src" alt={card.name} />
       </div>
+      <div className="card-info-titles">
       <h3 className="card-info-title">{card.name}</h3>
+      
+      <button className="card-play-btn" onClick={() => setIsClick(!isClick)}>▶︎</button>
+      </div>
       <div className="card-info-date">{card.date}</div>
       <div className="card-info-review">{card.review}</div>
       
-      <button className="card-play-btn" onClick={() => setIsClick(!isClick)}>▶︎</button>
       <div className="card-info-tags">
         {card.tags.map((tag) => (
           <div className="card-info-tag" key={tag}>
