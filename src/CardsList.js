@@ -1,5 +1,4 @@
 import CardInfo from "./CardInfo";
-import { useState } from "react";
 
 const CardsList = ({ arrCards }) => {
 

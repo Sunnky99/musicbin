@@ -7,6 +7,7 @@ const CardInfo = ({ card }) => {
     return (
       <>
         <iframe
+        title="spotify-playlist"
           data-testid="embed-iframe"
           style={{ borderRadius: "12px" }}
           src={src}

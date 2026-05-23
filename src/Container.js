@@ -1,6 +1,5 @@
 
 import { useState } from 'react';
-import {Routes, Route} from 'react-router-dom'
 
 import Aside from './Aside';
 import CardsList from './CardsList';
