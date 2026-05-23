@@ -22,7 +22,7 @@ main{
     align-items: center;
 min-height: 100vh;
     background-color: #000000;
-    color: white;
+    color: #dcdad7;
 }
 h1{
     font-family:'Courier New', Courier, monospace;
@@ -35,14 +35,15 @@ li {
     cursor: pointer;
 }
 
-.li-tags{
+.list-tags-item{
     width: fit-content;
     max-width: 200px;
     flex: 1;
     text-align: center;
+    margin-left: 5px;
 }
 
-.li-tags:hover{
+.list-tags-item:hover{
     font-weight: 900;
 
 }
@@ -116,7 +117,7 @@ animation: rotate 0.35s ease-in-out;
     max-height: 270px;
     overflow: hidden;
     position: relative;
-    border: 1px solid #fff;
+    border: 1px solid #ededed;
     
     filter: grayscale(1);
 }
@@ -132,6 +133,7 @@ animation: rotate 0.35s ease-in-out;
 .card-info-date{
     font-family: myFont;
     clip-path: inset(0% 0% 0% 0%);
+    cursor: pointer;
 }
 
 .card-info-review{
@@ -161,21 +163,34 @@ animation: rotate 0.35s ease-in-out;
     display: flex;
     gap: 5px;
     margin-top: 10px;
+    
 }
 
-.card-info-tags .li-tags{
+.card-info-tag{
+cursor: pointer;
+}
+
+
+
+
+.card-info-tags .card-info-tag{
     flex: 1;
+    text-align: center;
     width: 100%;
     background-color: #fff;
     color: #000;
     font-size: 0.8rem;
 }
 
-.card-info-tags:hover{
+.card-info-tag:hover{
     animation: rotate 0.35s ease-in-out;
     color: #7e7e7e;
     text-shadow: 1px 1px 1px rgb(196, 196, 196);
     
+}
+
+.card-play-btn{
+    width: 100%;
 }
 
 aside{
@@ -235,6 +250,27 @@ font-size: 1.2rem;
     margin:  3px 0 3px 0;
 }
 
+.list-items{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.list-tags{
+    width: 100%;
+    padding: 15px;
+    align-items: center;
+    white-space: nowrap;
+    border: 1px solid #000;
+    background-color: #000;
+    color: #fff;
+}
+
+.list-tags-btn{
+    width: 100%;
+    border: none;
+    font-weight: bolder;
+    margin-top: 10px;
+}
 
 
 
@@ -313,8 +349,8 @@ font-size: 1.2rem;
     0%{
         transform: rotate(0deg);
     }
-50%{
-        transform: rotate(1deg);
+    50%{
+        transform: rotate(2deg);
     }
 
     100%{
@@ -352,23 +388,7 @@ font-size: 1.2rem;
     transform: scale(0.95); 
 }
 
-.list-items{
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-.list-tags{
-    display: flex;
-    width: 100%;
-    height: 50px;
-    padding: 5px;
-    overflow: hidden;
-    align-items: center;
-    white-space: nowrap;
-    border: 1px solid #000;
-    background-color: #000;
-    color: #fff;
-}
+
 
 /* 这里可以用css重新弄一下，每次变化视窗时重新计算然后加载 */
 .list-tags:hover .list-tags-box {
@@ -464,7 +484,8 @@ main{
     grid-template: 
     'a b'
     'c c'
-    'd d';
+    'd d'
+    'e f';
     grid-template-columns: 55% 45%;
 
 }
@@ -475,11 +496,10 @@ main{
     justify-content: end;
     max-height: 150px ;
     grid-area: b;
+    filter: none;
 }
 
 .card-info-img-src{
-    width: fit-content;
-    object-fit: contain;
     transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1); 
 }
 
@@ -496,7 +516,12 @@ justify-content: space-evenly;
 .card-info-text h3{
     font-size: 1.5rem;
 }
-
+.card-info-date{
+    grid-area: e;
+}
+.card-play-btn{
+    grid-area: f;
+}
 .card-info-review{
 
     font-size: 0.75rem;
@@ -509,6 +534,7 @@ grid-area: c;
 grid-area: d;
 align-self: self-end;
 
+    margin-bottom: 15px ;
     font-size: 0.5rem;
 line-height: 1.4;
 } 
@@ -520,14 +546,31 @@ aside{
     top: 0;
     padding: 0px;
     height: fit-content;
-    background-color: #ffffff00;
     transition: all 0.1s ease;
+    border-bottom:3px double white ;
 }
 
 aside h1{
     background-color: #fff;
 }
 
+.list-tags{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.list-date{
+    display: flex;
+    flex-direction: row;
+    border-bottom:1px solid white ;
+    justify-content: flex-start;
+    gap: 20px;
+}
+.list-date.card-info-date{
+    width: fit-content;
+}
+/* 
 .list-date,
 .list-tags,
 .list-search,
@@ -639,6 +682,6 @@ height: 80px;
     text-align: center;
     font-size: xx-large;
     border: 0px solid #000;
-}
+} */
 
 }

@@ -1,16 +1,16 @@
-import useFetch from './useFetch'
-
-import AsideDateList from "./AsideDateList";
-import AsideTagList from "./AsideTagList";
 
 
-const Aside = () => {
-    const {data:music, isPending, error} = useFetch('music')
+import ListDates from './ListDates';
+import ListTags from './ListTags';
+
+
+const Aside = ({arrDates, arrTags}) => {
     return ( 
         <aside>
-            <AsideDateList music={music}></AsideDateList>
-            <AsideTagList music={music}></AsideTagList>
-        </aside>
+                <h1 >Music-bin</h1>
+                        <ListDates arrDates={arrDates}/>
+                        <ListTags arrTags={arrTags}/>
+            </aside>
      );
 }
  
