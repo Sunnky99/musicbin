@@ -2,7 +2,7 @@ import { useState } from "react";
 
 const CardInfo = ({ card }) => {
   const [isClick, setIsClick] = useState(false);
-  const src = "https://open.spotify.com/embed/album/"+card.playId+"?utm_source=generator"
+  const src = `${card.playId}`
   if (isClick) {
     return (
       <>
@@ -27,11 +27,11 @@ const CardInfo = ({ card }) => {
       <div className="card-info-img" style={{ backgroundColor: card.color }}>
         <img src={card.imgLink} className="card-info-img-src" alt={card.name} />
       </div>
-      <div className="card-info-titles">
-      <h3 className="card-info-title">{card.name}</h3>
-      
-      <button className="card-play-btn" onClick={() => setIsClick(!isClick)}>▶︎</button>
-      </div>
+
+    <div className="card-info-titles">
+        <h3 className="card-info-title">{card.name}</h3>
+        <button className="card-play-btn" onClick={() => setIsClick(!isClick)}>▶︎</button>
+    </div>
       <div className="card-info-date">{card.date}</div>
       <div className="card-info-review">{card.review}</div>
       
