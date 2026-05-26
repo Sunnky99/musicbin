@@ -1,6 +1,6 @@
 import CardInfo from "./CardInfo";
 
-const CardsList = ({ arrCards }) => {
+const CardsList = ({ arrCards, isChinese ,handleChangeChinese}) => {
 
 
 
@@ -9,7 +9,7 @@ const CardsList = ({ arrCards }) => {
       <div className="cards">
         {arrCards.map((card) => (
           <div className="card" key={card.id} >
-            <CardInfo card={card}/>
+            <CardInfo card={card} isChinese={isChinese} handleChangeChinese={handleChangeChinese} />
           </div>
         ))}
       </div>

@@ -5,11 +5,12 @@ import Aside from './Aside';
 import CardsList from './CardsList';
 const Container = ({music}) => {
     const [arrCards, setArrCards] = useState(music)
+  const [isChinese, setIsChinese] = useState(false);
+
 
     const arriteration = (arr) => [...new Set(arr)]
 
     //list date值
-    
     const dates =  music.map(
         song =>{
             const songItem = (song.date).split('-')
@@ -17,6 +18,7 @@ const Container = ({music}) => {
         }
     )
      const arrDates =  arriteration(dates)
+
     //list tags值
     const arrTags =  arriteration(music.reduce(
         ((acc,m) => acc.concat(m.tags)),[]
@@ -53,10 +55,16 @@ const Container = ({music}) => {
     } */
 
 
+         function handleChangeChinese(){
+
+            setIsChinese(prev => !prev)
+            alert('PS.大陆加载完成需要等待一会')
+         }
+
     return ( 
         <main onClick={handleCardClick}>
-        <CardsList arrCards={arrCards} />
-        <Aside arrDates={arrDates} arrTags={arrTags}/>
+        <CardsList arrCards={arrCards} isChinese={isChinese} handleChangeChinese={handleChangeChinese} />
+        <Aside arrDates={arrDates} arrTags={arrTags} isChinese={isChinese} handleChangeChinese={handleChangeChinese} />
        </main>
      );
 }
