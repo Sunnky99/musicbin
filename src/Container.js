@@ -3,9 +3,8 @@ import { useState } from 'react';
 
 import Aside from './Aside';
 import CardsList from './CardsList';
-const Container = ({music}) => {
+const Container = ({music,width}) => {
     const [arrCards, setArrCards] = useState(music)
-  const [isChinese, setIsChinese] = useState(false);
 
 
     const arriteration = (arr) => [...new Set(arr)]
@@ -55,16 +54,11 @@ const Container = ({music}) => {
     } */
 
 
-         function handleChangeChinese(){
-
-            setIsChinese(prev => !prev)
-            alert('PS.大陆加载完成需要等待一会')
-         }
 
     return ( 
         <main onClick={handleCardClick}>
-        <CardsList arrCards={arrCards} isChinese={isChinese} handleChangeChinese={handleChangeChinese} />
-        <Aside arrDates={arrDates} arrTags={arrTags} isChinese={isChinese} handleChangeChinese={handleChangeChinese} />
+        <CardsList arrCards={arrCards}  />
+        <Aside arrDates={arrDates} arrTags={arrTags}  width={width}/>
        </main>
      );
 }
