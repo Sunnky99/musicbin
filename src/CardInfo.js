@@ -42,7 +42,7 @@ const CardInfo = ({ card}) => {
       <div className="card-info-review">{card.review}</div>
       
       <div className="card-info-tags">
-        {card.tags.map((tag) => (
+        {card.tags?.map((tag) => (
           <div className="card-info-tag" key={tag}>
             {tag}
           </div>
