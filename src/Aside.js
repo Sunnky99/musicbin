@@ -1,10 +1,11 @@
 import ListDates from "./ListDates";
 import ListTags from "./ListTags";
+import Search from "./Search";
 import useWindowSize from './useWindowSize';
 
 
 import { useState } from "react";
-const Aside = ({ arrDates, arrTags }) => {
+const Aside = ({ arrDates, arrTags ,handleInput}) => {
   const [isActive, setIsActive] = useState(false);
 const {width} = useWindowSize();
   if (width < 615) {
@@ -34,6 +35,7 @@ const {width} = useWindowSize();
   return (
     <aside>
       <h1>Music-bin</h1>
+      <Search handleInput={handleInput}/>
       <ListDates arrDates={arrDates} />
       <ListTags arrTags={arrTags} />
       <p

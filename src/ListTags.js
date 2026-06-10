@@ -2,7 +2,7 @@ import { useState } from "react";
 
 const ListTags = ({ arrTags }) => {
   const [isActive ,setIsActive] = useState(false)
-    let number = isActive ? arrTags : arrTags.slice(0, 2)
+    let number = isActive ? arrTags : arrTags.slice(0, 5)
     let text = isActive ? "TAGS" : "MORE"
   return (
     

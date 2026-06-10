@@ -4,9 +4,8 @@ import Container from './Container';
 
 
 
-const Main = ({width}) => {
+const Main = () => {
     const {data:music, isPending, error} = useFetch('music')
-        
     return ( 
         <>
             {error && <div>{error}</div>}
