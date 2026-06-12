@@ -5,7 +5,7 @@ import useWindowSize from './useWindowSize';
 
 
 import { useState } from "react";
-const Aside = ({ arrDates, arrTags ,handleInput}) => {
+const Aside = ({ arrDates, arrTags ,handleInput,  handleCardClick}) => {
   const [isActive, setIsActive] = useState(false);
 const {width} = useWindowSize();
   if (width < 615) {
@@ -14,8 +14,8 @@ const {width} = useWindowSize();
         <h1 onClick={() => setIsActive(!isActive)}>Music-bin</h1>
         {isActive ? (
           <>
-            <ListDates arrDates={arrDates} />
-            <ListTags arrTags={arrTags} />
+            <ListDates arrDates={arrDates}  handleCardClick={handleCardClick}/>
+            <ListTags arrTags={arrTags}  handleCardClick={handleCardClick}/>
             <p
               style={{
                 backgroundColor: "#ffffff00",
@@ -34,10 +34,12 @@ const {width} = useWindowSize();
   }
   return (
     <aside>
-      <h1>Music-bin</h1>
+      <h1>Music-bin</h1>      
       <Search handleInput={handleInput}/>
-      <ListDates arrDates={arrDates} />
-      <ListTags arrTags={arrTags} />
+      <ListDates arrDates={arrDates} handleCardClick={handleCardClick} />
+      <ListTags arrTags={arrTags}  handleCardClick={handleCardClick}/>
+
+
       <p
         style={{
           backgroundColor: "white",

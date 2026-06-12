@@ -16,7 +16,7 @@ const CardInfoIframe = ({isChinese, card}) => {
       <>{((isChinese )?((playURLChs)?(
         <>
        <iframe title="global-playlist" frameborder="no" border="0" marginwidth="0" marginheight="0" width="100%" height="470" src={currentURL}></iframe>
-        <p className="card-info-tip">提示加载失败可以多切换几下</p>
+        <p className="card-info-tip">加载失败多切换/源VIP听不了</p>
       </>):(<p>抱歉我们无法进入中国大陆</p>)
       )
        :((playURL)?(

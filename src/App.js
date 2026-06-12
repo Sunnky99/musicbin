@@ -1,16 +1,16 @@
-
-import './App.css';
-import Main from './Main';
-
+import "./App.css";
+import Main from "./Main";
+import Posts from "./Posts";
+import { BrowserRouter as Router, Routes, Route} from "react-router-dom";
 
 function App() {
-
-
   return (
-
-<main >
-  <Main ></Main>
-</main>
+    <Router>
+    <Routes>
+      <Route path="/" element={<Main />}></Route>
+      <Route path="/posts" element={<Posts />}></Route>
+      </Routes>
+    </Router>
   );
 }
 

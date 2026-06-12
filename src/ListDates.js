@@ -1,10 +1,10 @@
-const ListDates = ({arrDates}) => {
+const ListDates = ({arrDates, handleCardClick}) => {
     return ( 
-    <div className="list-date">
+    <div className="list list-date">
         {arrDates.map(
-            a => (
-                <div className="card-info-date" key={a}>
-                    {a}
+            date => (
+                <div className="card-info-date" key={date} onClick={()=>handleCardClick('date',date)}>
+                    {date}
                 </div>
             )
         )}

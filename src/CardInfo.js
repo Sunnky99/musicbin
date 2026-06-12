@@ -1,8 +1,11 @@
 import { useState } from "react";
 import CardInfoIframe from "./CardInfoIframe";
-const CardInfo = ({ card }) => {
+const CardInfo = ({ card ,handleCardClick}) => {
   const [isChinese, setIsChinese] = useState(false);
   const [isClick, setIsClick] = useState(false);
+
+const content = <p>{card.review}</p>
+
 
   if (isClick) {
     return (
@@ -48,14 +51,14 @@ const CardInfo = ({ card }) => {
         <h3 className="card-info-title">{card.name}</h3>
         <p className="card-info-singer">{card.singer}</p>
       </div>
-      <div className="card-info-date">{card.date}</div>
-      <div className="card-info-review">{card.review}</div>
+      <div className="card-info-date" onClick={()=>handleCardClick('date',(card.date))}>{card.date}</div>
+      <div className="card-info-review">{content}</div>
       <button className="card-play-btn" onClick={() => setIsClick(!isClick)}>
           ▶︎
         </button>
       <div className="card-info-tags">
         {card.tags?.map((tag) => (
-          <div className="card-info-tag" key={tag}>
+          <div className="card-info-tag" key={tag} onClick={()=>handleCardClick('tag',tag)}>
             {tag}
           </div>
         ))}
