@@ -1,19 +1,15 @@
+import { Link } from "react-router-dom";
+import PostsList from "./PostsList";
 const Posts = () => {
-    return ( 
-        <main style={{
-            background:"white",
-            color:"black"
-        }}>
-            <div className="cards">
-                <div className="ard">
-                    <h3>地牢音乐</h3>
-                    <ul>
-                        <li>锦瑟</li>
-                    </ul>
-                </div>
-            </div>
-        </main>
-     );
-}
- 
+  return (
+    <main className="posts">
+      <nav>
+       <Link to={'/'}>HOME</Link>
+      </nav>
+      <PostsList/>
+      
+    </main>
+  );
+};
+
 export default Posts;

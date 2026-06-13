@@ -2,7 +2,7 @@ import ListDates from "./ListDates";
 import ListTags from "./ListTags";
 import Search from "./Search";
 import useWindowSize from './useWindowSize';
-
+import { Link } from "react-router-dom";
 
 import { useState } from "react";
 const Aside = ({ arrDates, arrTags ,handleInput,  handleCardClick}) => {
@@ -38,7 +38,6 @@ const {width} = useWindowSize();
       <Search handleInput={handleInput}/>
       <ListDates arrDates={arrDates} handleCardClick={handleCardClick} />
       <ListTags arrTags={arrTags}  handleCardClick={handleCardClick}/>
-
 
       <p
         style={{

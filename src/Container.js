@@ -35,25 +35,35 @@ const Container = ({ music }) => {
 //Cards组件筛选处理
 //
 
+//设置了一个变量进行筛选赋值，最后再统一使用赋值好的数组变量进行排序setState
+function updateCards(list){
+    setArrCards(
+        [...list].sort(
+            (a, b) => a.date > b.date ? -1 : 1
+        )
+    );
+}
 
   //tag和日期点击筛选，左card点击
 
   function handleCardClick(type, value) {
     if (type === "date") {
-      sortMusic = music.filter(
-        (song) => song.date.split("-")[0] === value.split("-")[0],
-      );
       //设置了一个变量进行筛选赋值，最后再统一使用赋值好的数组变量进行排序setState
-      setArrCards([...sortMusic].sort((a, b) => (a.date > b.date ? -1 : 1)));
+      updateCards(
+        music.filter(
+          (song) => song.date.split("-")[0] === value.split("-")[0],
+       )
+      )
     }
 
     if (type === "tag") {
-      sortMusic = music.filter((song) => song.tags.find((s) => s === value));
-      //设置了一个变量进行筛选赋值，最后再统一使用赋值好的数组变量进行排序setState
-      setArrCards([...sortMusic].sort((a, b) => (a.date > b.date ? -1 : 1)));
+
+      updateCards(
+        music.filter((song) => song.tags.find((s) => s === value))
+      )
     }
     if (type === "all") {
-      setArrCards([...music].sort((a, b) => (a.date > b.date ? -1 : 1)));
+      updateCards(music)
     }
   }
 

@@ -1,11 +1,9 @@
 import { useState } from "react";
 import CardInfoIframe from "./CardInfoIframe";
+import Markdown from "react-markdown";
 const CardInfo = ({ card ,handleCardClick}) => {
   const [isChinese, setIsChinese] = useState(false);
   const [isClick, setIsClick] = useState(false);
-
-const content = <p>{card.review}</p>
-
 
   if (isClick) {
     return (
@@ -52,7 +50,7 @@ const content = <p>{card.review}</p>
         <p className="card-info-singer">{card.singer}</p>
       </div>
       <div className="card-info-date" onClick={()=>handleCardClick('date',(card.date))}>{card.date}</div>
-      <div className="card-info-review">{content}</div>
+      <div className="card-info-review"><Markdown>{card.review}</Markdown></div>
       <button className="card-play-btn" onClick={() => setIsClick(!isClick)}>
           ▶︎
         </button>
