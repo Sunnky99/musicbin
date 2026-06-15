@@ -7,7 +7,7 @@ const Posts = () => {
        <Link to={'/'}>HOME</Link>
       </nav>
       <PostsList/>
-      
+      <footer></footer>
     </main>
   );
 };

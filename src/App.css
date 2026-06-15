@@ -329,6 +329,7 @@ font-size: 1.2rem;
     max-height: 40vh;
     overflow-y: scroll;
     scrollbar-width: thin;
+    position: relative;
 }
 
 .list-tags .card-info-tag{
@@ -338,8 +339,12 @@ font-size: 1.2rem;
 .list-tags-btn{
     width: 100%;
     border: none;
+    line-height: 25px;
     font-weight: bolder;
-    margin-top: 10px;
+    margin: 5px 0 15px 0;
+    position:sticky;
+    top: 0;
+    z-index: 1;
 }
 
 
@@ -424,6 +429,7 @@ font-size: 1.2rem;
     width: 80%;
     min-height: 80vh;
     padding: 20px;
+    margin: 0 20px 20px 20px;
     color:#d4d4d4;
     text-shadow: 1px 1px 5px #ff2fc7;
     border: 1px solid #2f1023;

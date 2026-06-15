@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import fm from "front-matter";
 import { useParams, Link } from "react-router-dom";
 import Markdown from "react-markdown";
+import rehypeRaw from "rehype-raw";
 import { posts } from "./post";
 
 const Posts = () => {
@@ -13,7 +14,7 @@ const Posts = () => {
   //查找文章id
   const post = posts.find((item) => item.id === Number(id));
 
-  const postLink = `/posts/${post.title}.md`;
+  const postLink = `/posts/${post.slug}.md`;
   useEffect(() => {
     //防御机制，如果posts数组里没有id则设置为错误
     if (!posts) {
@@ -68,8 +69,9 @@ const Posts = () => {
 
       <article>
         <h1>{article.title}</h1>
-        <Markdown>{article.content}</Markdown>
+        <Markdown  rehypePlugins={[rehypeRaw]}>{article.content}</Markdown>
       </article>
+      <footer></footer>
     </main>
   );
 };
