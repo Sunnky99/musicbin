@@ -41,9 +41,15 @@ const Others = () => {
         );
       default:
         return (
-          <div>
-            <p>这里是空的</p>
+          
+          <div style={{textAlign:"center"}}>
+            <img src="public\chick.png" style={{
+                  width: "50%",
+                  margin: "5rem"
+            }} />
+          <p>这里是空的</p>
           </div>
+          
         );
     }
   };
@@ -73,9 +79,12 @@ const Others = () => {
       <div className="container">{pageContent()}</div>
       <aside>
         <h1 onClick={() => setIsActive(!isActive)}>Music-bin</h1>
-        <PostsButtons changePage={changePage} />
-        <PostsList getSlug={getSlug} changePage={changePage}></PostsList>
+        <div className="post-content">
+          <PostsButtons changePage={changePage} />
+          <PostsList getSlug={getSlug} changePage={changePage}></PostsList>
+        </div>
       </aside>
+      
     </main>
   );
 };

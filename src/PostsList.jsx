@@ -14,7 +14,7 @@ const [posts, setPosts] = useState([])
     <div className="list posts-article">
         <h4>文章列表</h4>
         <ul>
-      {posts.map((post) => (
+      {posts.sort((a, b) => (a.date > b.date ? -1 : 1)).map((post) => (
         <li key={post.slug} onClick={
           ()=>{
             getSlug(post.slug);
