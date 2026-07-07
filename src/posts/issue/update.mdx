@@ -3,7 +3,30 @@ title: 更新记录
 id: 1
 ---
 
+## 2026年7月7日
 
+1. fix-vite404:
+
+在根目录新建vercel.json
+
+写入内容：
+
+```json
+{
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/index.html" }
+  ]
+}
+```
+
+
+2. 修复手机端post页面163链接iframe不加载的问题。
+
+
+在index.html里加入
+```js
+<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+```
 
 ## 2026年7月5日
 

@@ -47,7 +47,7 @@ const Others = () => {
                   width: "50%",
                   margin: "5rem"
             }} />
-          <p>这里是空的</p>
+          <p>click click click</p>
           </div>
           
         );
