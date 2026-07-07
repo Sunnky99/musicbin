@@ -1,12 +1,12 @@
 import { Link } from "react-router-dom";
-import PostsList from "./PostsList";
+import OthersList from "./OthersList";
 const Posts = () => {
   return (
     <main className="posts">
       <nav>
        <Link to={'/'}>HOME</Link>
       </nav>
-      <PostsList/>
+      <OthersList/>
       <footer></footer>
     </main>
   );

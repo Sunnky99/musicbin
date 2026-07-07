@@ -41,8 +41,10 @@ const {width} = useWindowSize();
     <aside>
       <h1>Music-bin</h1>      
       <Search handleInput={handleInput}/>
-      <ListDates arrDates={arrDates} handleCardClick={handleCardClick} />
-      <ListTags arrTags={arrTags}  handleCardClick={handleCardClick}/>
+      <div className="lists">
+        <ListDates arrDates={arrDates} handleCardClick={handleCardClick} />
+        <ListTags arrTags={arrTags}  handleCardClick={handleCardClick}/>
+      </div>
        <button><Link to={"/others"}>Others</Link></button>
       <p
         style={{

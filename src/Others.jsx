@@ -1,6 +1,6 @@
 import { useState } from "react";
 import useWindowSize from "./useWindowSize";
-import PostsList from "./PostsList";
+import OthersList from "./OthersList";
 import PostsSingle from "./PostsSingle";
 import PostsButtons from "./PostsButtons";
 const Others = () => {
@@ -43,7 +43,7 @@ const Others = () => {
         return (
           
           <div style={{textAlign:"center"}}>
-            <img src="public\chick.png" style={{
+            <img src="https://files.seeusercontent.com/2026/07/06/Ykn5/chick.png" style={{
                   width: "50%",
                   margin: "5rem"
             }} />
@@ -57,13 +57,14 @@ const Others = () => {
   if (width < 615) {
     return (
       <main className="posts">
-        <div className="container">{pageContent()}</div>
+        <div className="container">{pageContent()}
+        </div>
         <aside>
           <h1 onClick={() => setIsActive(!isActive)}>Music-bin</h1>
           {isActive ? (
             <>
               <PostsButtons changePage={changePage} />
-              <PostsList getSlug={getSlug} changePage={changePage}></PostsList>
+              <OthersList getSlug={getSlug} changePage={changePage}></OthersList>
             </>
           ) : (
             <>
@@ -76,12 +77,13 @@ const Others = () => {
 
   return (
     <main className="posts">
-      <div className="container">{pageContent()}</div>
+      <div className="container">{pageContent()}
+      </div>
       <aside>
         <h1 onClick={() => setIsActive(!isActive)}>Music-bin</h1>
-        <div className="post-content">
+        <div className="posts-aside-content">
           <PostsButtons changePage={changePage} />
-          <PostsList getSlug={getSlug} changePage={changePage}></PostsList>
+          <OthersList getSlug={getSlug} changePage={changePage}></OthersList>
         </div>
       </aside>
       
