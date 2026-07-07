@@ -62,7 +62,7 @@ const MusicChange = ({
               data-testid="embed-iframe"
               style={{ borderRadius: "12px" }}
               src={`https://open.spotify.com/embed/track/${spoLink}?theme=0`}
-              width="80%"
+              width="100%"
               height="152"
               frameBorder="0"
               allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
@@ -74,7 +74,7 @@ const MusicChange = ({
             <iframe
               title="spotify-playlist"
               data-testid="embed-iframe"
-              style={{ borderRadius: "12px", width: "80%", height: "352px" }}
+              style={{ borderRadius: "12px", width: "100%", height: "352px" }}
               src={`https://open.spotify.com/embed/album/${spoLink}?theme=0`}
               frameBorder="0"
               allowfullscreen=""
