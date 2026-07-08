@@ -51,6 +51,7 @@ pre{
     border: 1px solid gray;
     padding: 1rem;
     margin: 0.5rem;
+    white-space: pre-wrap;
 }
 
 button {
@@ -160,9 +161,9 @@ figure img{
 .container {
   position: relative;
   width: 100%;
+    min-height: 100dvh;
 padding: 15px;
   flex: 1;
-  
   scrollbar-width: none;
 }
 
@@ -562,25 +563,30 @@ h2#table-of-contents + ul {
     }
   }
 
-@keyframes in {
+  .loading {
+    display: block;
+    animation: loading 3s infinite ease-in-out;
+  }
+
+@keyframes loading {
   0% {
-    transform: translateX(0);
+    transform: translateY(0);
   }
 
   25% {
-    color: #7e7e7e;
+    transform: translateY(2px);
   }
 
   50% {
-    color: #cecece;
+    transform: translateY(5px);
   }
 
   75% {
-    color: #7e7e7e;
+    transform: translateY(2px);
   }
 
   100% {
-    transform: translateX(-50%);
+    transform: translateY(0);
   }
 }
 
@@ -856,7 +862,6 @@ border: 1px solid #000;
   flex-direction: column;
   justify-content: space-evenly;
   height: fit-content;
-  min-height: 35vh;
     gap: 5px;
     overflow-x:visible;
 }
@@ -927,7 +932,7 @@ border: 1px solid #000;
   }
   
 .list-date {
-  width: fit-content;
+  width: 20%;
   flex-direction: column;
   text-align: center;
 }
@@ -939,7 +944,7 @@ border: 1px solid #000;
 .list-tags {
   display: block;
   gap: 0px;
-  width: 80%;
+  width:stretch;
   max-height: 40vh;
 }
 }

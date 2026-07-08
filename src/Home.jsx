@@ -7,7 +7,7 @@ const Main = () => {
     return ( 
         <main>
             {error && <div>{error}</div>}
-            {isPending && <div>连接中......</div>}
+            {isPending && <div >连接中......</div>}
             {music &&<Container music={music} ></Container>}
         </main>
      );
