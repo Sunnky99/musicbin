@@ -556,7 +556,7 @@ aside a {
   min-height: 100vh;
 }
 .lm-container{
-  padding: 1.5rem;
+  padding: 2rem;
   display: flex;
   gap: 10px;
 }
@@ -987,7 +987,7 @@ border: 1px solid #000;
 }
   .lm-cards{
   width: 70%;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
 grid-template-rows: repeat(auto, 1fr);
 }
 
@@ -1027,5 +1027,9 @@ width: 55%;
   gap: 0px;
   width:stretch;
   max-height: 40vh;
+}
+  .lm-cards{
+  grid-template-columns: repeat(4, 1fr);
+
 }
 }
