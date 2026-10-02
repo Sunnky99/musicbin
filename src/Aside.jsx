@@ -20,6 +20,7 @@ const {width} = useWindowSize();
             <ListDates arrDates={arrDates}  handleCardClick={handleCardClick}/>
             <ListTags arrTags={arrTags}  handleCardClick={handleCardClick}/>
             <button><Link to={"/others"}>Others</Link></button>
+            <button><Link to={"/local"}>Show</Link></button>
             <p
               style={{
                 backgroundColor: "#ffffff00",
@@ -46,6 +47,7 @@ const {width} = useWindowSize();
         <ListTags arrTags={arrTags}  handleCardClick={handleCardClick}/>
       </div>
        <button><Link to={"/others"}>Others</Link></button>
+       <button><Link to={"/local"}>Show</Link></button>
       <p
         style={{
           backgroundColor: "white",
