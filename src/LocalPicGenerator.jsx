@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
+
 const LocalPicGenerator = ({ music }) => {
   const today = new Date();
   const [highlight, setHighlight] = useState("");
@@ -135,6 +137,8 @@ const LocalPicGenerator = ({ music }) => {
         >
           RESET
         </button>
+        
+       <button style={{borderRadius:'50%'}}><Link to={"/"}>HOME</Link></button>
       </div>
       <main style={{ backgroundColor: `${background}` }} className="lm-main">
 {show}

@@ -552,6 +552,7 @@ aside a {
 
 .lm-main{
   flex-direction: column;
+
   min-height: 100vh;
 }
 .lm-container{
@@ -580,11 +581,14 @@ img:hover{
 .lm-titles{
   width: 30%;
 
+    font-size: smaller;
   li{
         
         padding-left: 10px;
         transition: all cubic-bezier(0.075, 0.82, 0.165, 1) 0.3s;
         cursor: pointer;
+        
+        font-size: large;
   }
 }
 
@@ -978,8 +982,8 @@ border: 1px solid #000;
     }
   }
 
-.lm-container{
-  margin: auto 2rem;
+.lm-main{
+  justify-content:unset;
 }
   .lm-cards{
   width: 70%;
