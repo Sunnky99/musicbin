@@ -20,7 +20,7 @@ const [posts, setPosts] = useState([])
           ()=>{
             getSlug(post.slug);
             changePage('article')}}>
-               <Link to={`/posts/${post.slug}`}>
+               <Link to={`/others/${post.slug}`}>
           <p>{post.title}</p>
           <span>{post.date}</span></Link>
         </li>

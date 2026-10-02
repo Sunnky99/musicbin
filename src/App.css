@@ -483,6 +483,7 @@ aside a {
 .media{
   padding: 10px;
   width: 95%;
+  max-width: 600px;
   display: flex;
   flex-direction: column;
   gap: 5px;
@@ -539,6 +540,53 @@ aside a {
 
 .media-iframe a::after{
   content: '↩';
+}
+
+
+/* 月度卡片 */
+
+.lm-form button{
+  margin: 2px 10px;
+    padding: 0px 5px;
+}
+
+.lm-main{
+  flex-direction: column;
+  min-height: 100vh;
+}
+.lm-container{
+  padding: 1.5rem;
+  display: flex;
+  gap: 10px;
+}
+
+.lm-cards{
+  width: 70%;
+  display: grid;
+}
+
+
+
+.lm-card{
+      align-self: center;
+    justify-self: center;
+
+img:hover{
+  transform: scale(1.5);
+  transition: all cubic-bezier(0.075, 0.82, 0.165, 1) 0.3s;
+}
+
+}
+.lm-titles{
+  width: 30%;
+
+    font-size: smaller;
+  li{
+        
+        padding-left: 10px;
+        transition: all cubic-bezier(0.075, 0.82, 0.165, 1) 0.3s;
+        cursor: pointer;
+  }
 }
 
 
@@ -759,6 +807,20 @@ aside h1 {
     overflow-y: scroll;
 }
 }
+
+  .lm-cards{
+  width: 70%;
+  grid-template-columns: repeat(2, 1fr);
+grid-template-rows: repeat(auto, 1fr);
+}
+
+
+
+.lm-card{
+  img{
+width: 65%;
+}
+}
 }
 
 @media (min-width: 615px) {
@@ -917,6 +979,22 @@ border: 1px solid #000;
     }
   }
 
+.lm-container{
+  margin: auto 2rem;
+}
+  .lm-cards{
+  width: 70%;
+  grid-template-columns: repeat(4, 1fr);
+grid-template-rows: repeat(auto, 1fr);
+}
+
+
+
+.lm-card{
+  img{
+width: 55%;
+}
+}
 }
 
 

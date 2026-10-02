@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getPost, getIssuePost } from "./getPosts";
+import { getPost } from "./getPosts";
 import { MDXProvider } from "@mdx-js/react";
 import { Link } from "react-router-dom";
 
@@ -8,6 +8,7 @@ import Img from '../src/components/mdx/Img';
 import VideoChange from '../src/components/mdx/VideoChange';
 import MusicChange from '../src/components/mdx/MusicChange';
 import Details from '../src/components/mdx/Details';
+import { useParams } from "react-router-dom";
 const mdxComponents = {
   Player,
   Img,
@@ -16,25 +17,22 @@ const mdxComponents = {
   Details
 }
 
-const PostsSingle = ({isContent, slug}) => {
+const PostsSingle = () => {
 const [post, setPosts] = useState(null)
 
+const {slug} = useParams()
 
 useEffect(() => {
-  if(isContent){
   getPost(slug).then(setPosts)
-}else {
-  getIssuePost(slug).then(setPosts)}
-
   
-}, [slug, isContent])
+}, [slug])
 
 if(!post){return <p>loading</p>}
 const { Component, title } = post;
   return (
     <>
       <article className="posts-container-content">
-       <h1>{title}<Link to={`/others/${post.slug}`}><button>↩︎</button></Link></h1>
+        <h1>{title}<Link to={`/others`}><button>⬅︎</button></Link></h1>
         <MDXProvider components={mdxComponents}>
           <Component />
         </MDXProvider>
