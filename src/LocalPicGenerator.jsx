@@ -13,8 +13,8 @@ const LocalPicGenerator = ({ music }) => {
     [...music]
       .filter(
         (song) =>
-          Number(song.date.split("-")[0]) === 2026 &&
-          7 === Number(song.date.split("-")[1]),
+          Number(song.date.split("-")[0]) === year &&
+          month === Number(song.date.split("-")[1]),
       )
       .sort((a, b) => (a.date > b.date ? -1 : 1)),
   );
