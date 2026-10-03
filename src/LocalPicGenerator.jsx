@@ -1,16 +1,20 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-
+import LocalPicGMain from "./LocalPicGMain";
 const LocalPicGenerator = ({ music }) => {
-  const today = new Date();
+  // 高亮标题字符串
   const [highlight, setHighlight] = useState("");
+  const [chosenSong, setChosenSong] = useState("");
+
+  // 日期字符串
+  const today = new Date();
   const [year, setYear] = useState(today.getFullYear());
   const [month, setMonth] = useState(today.getMonth());
-   const [number, setNumber] = useState(1);
 
+  // 颜色数组数字
+  const [number, setNumber] = useState(1);
 
-
-
+  // 初始化显示专辑数组
   const [musicResult, setMusicResult] = useState(
     [...music]
       .filter(
@@ -21,8 +25,8 @@ const LocalPicGenerator = ({ music }) => {
       .sort((a, b) => (a.date > b.date ? -1 : 1)),
   );
 
+  // 提交年月后修改专辑数组，重新渲染页面
   function changeResult() {
-
     const result = [...music]
       .filter(
         (song) =>
@@ -31,79 +35,44 @@ const LocalPicGenerator = ({ music }) => {
       )
       .sort((a, b) => (a.date > b.date ? -1 : 1));
     setMusicResult(result);
+    setChosenSong("");
+    console.log(musicResult);
   }
 
-   let color = ["black"].concat(musicResult.map((song) => song.color));
+  // 设置颜色数组变量，默认0元素是黑色，遍历之前的专辑数组得出颜色数组，组合两个数组
+  let color = ["black"].concat(musicResult.map((song) => song.color));
+
+  //  设置背景色变量
   let background = color[number];
 
+  // 点击改变颜色，随机数索引
   function changeColor() {
     if (color.length === 0) return;
     setNumber(Math.floor(Math.random() * color.length));
   }
 
+  // 点击卡片高亮标题背景，修改setHighlight字符串
   function handleHighlight(type, name) {
     if (type === "reset") {
       setHighlight("");
     } else if (type === "card") {
       setHighlight(name);
+      setChosenSong(music.filter((card) => card.name === name));
+      console.log(chosenSong);
     }
   }
 
+  // form里的reset按钮，一键修改背景色，消除标题背景色
   function reset() {
     handleHighlight("reset");
     setNumber(0);
+    setChosenSong("");
   }
 
-  const show = (musicResult!=[]) ? (
-        <div className="lm-container">
-          <div className="lm-cards">
-            {musicResult.map((card) => (
-              <div
-                className="lm-card"
-                key={card.id}
-                title={card.name}
-                onClick={() => handleHighlight("card", card.name)}
-              >
-                <img
-                  src={card.imgLink}
-                  className="lm-card-info-img-src"
-                  alt={card.name}
-                />
-              </div>
-            ))}
-          </div>
-          <div className="lm-titles">
-            <ul>
-              {musicResult.map((card) => {
-                if (card.name === highlight) {
-                  return (
-                    <li
-                      key={card.id}
-                      title={card.review}
-                      style={{
-                        backgroundColor: `${card.color}`,
-                        textShadow: "1px 1px 1px #1f1f1f",
-                      }}
-                    >
-                      {card.name}
-                    </li>
-                  );
-                } else {
-                  return (
-                    <li key={card.id} title={card.review}>
-                      {card.name}
-                    </li>
-                  );
-                }
-              })}
-            </ul>
-          </div>
-        </div>
-  ) : (
-    <>
-    什么都没有
-    </>
-  )
+  const show =
+    musicResult.length != 0 ? (<LocalPicGMain musicResult={musicResult} handleHighlight={handleHighlight} highlight={highlight} chosenSong={chosenSong}/>): (
+      <>什么都没有，试试别的年月吧：）</>
+    );
 
   return (
     <>
@@ -137,11 +106,14 @@ const LocalPicGenerator = ({ music }) => {
         >
           RESET
         </button>
-        
-       <button style={{borderRadius:'50%'}}><Link to={"/"}>HOME</Link></button>
+
+        <button style={{ borderRadius: "50%" }}>
+          <Link to={"/"}>HOME</Link>
+        </button>
       </div>
       <main style={{ backgroundColor: `${background}` }} className="lm-main">
-{show}
+        {show}
+
       </main>
     </>
   );
